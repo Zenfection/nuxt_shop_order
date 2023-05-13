@@ -4,12 +4,9 @@ import { CartItem } from '~/utils/types';
 
 
 const userStore = useUserStore()
-if (!userStore.user) {
-    userStore.restoreState()
-}
 
-const cart = computed(() => userStore.cart)
-const isLogged = computed(() => userStore.isAuthenticated)
+const cart = computed(() => userStore.cart || [])
+const isLogged = computed(() => userStore.isAuthenticated || false)
 const totalMoney = computed(() => userStore.totalMoney.toFixed(2))
 
 const show = ref(false)
@@ -56,7 +53,7 @@ function discountPrice(price: number, discount: number) {
 
 onMounted(async() => {
     if (isLogged.value) {
-        await fetchCartUser();
+        // await fetchCartUser();
     }
 })
 
@@ -69,16 +66,16 @@ onMounted(async() => {
         <div class="cart-visible cursor-pointer" @click="show = !show">
             <i class="fa-duotone fa-bag-shopping fa-xl"></i>
             <span class="header-action-num" v-if="isLogged">
-                {{ cart.length }}
+                <!-- {{ cart.length }} -->
             </span>
         </div>
         <!-- Header Cart Content Start -->
         <ul class="header-cart-content" style="display: block" v-if="show" v-motion-fade>
-            <!-- Cart Procut Wrapper Start  -->
+            <!--! Cart Product Wrapper Start  -->
             <li class="cart-product-wrapper" v-for="item in cart" :key="item._id">
                 <div class="solution rounded cart-product-inner p-b-20 m-b-20 border-bottom product-inner">
-                    <!-- Single Cart Product Start -->
-                    <div class="single-cart-product">
+                    <!--! Single Cart Product Start -->
+                    <!-- <div class="single-cart-product">
                         <div class="cart-product-thumb">
                             <NuxtLink :to="`/product/${item.product._id}`">
                                 <NuxtImg provider="imagekit" class="rounded" :src="`/products/${item.product.image}`" alt="Cart Product"
@@ -108,35 +105,30 @@ onMounted(async() => {
                                 </span>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Cart Product End -->
+                    </div> -->
 
-                    <!-- Product Remove Start -->
-                    <div class="cart-product-remove">
+                    <!--! Product Remove Start -->
+                    <!-- <div class="cart-product-remove">
                         <a class="remove-cart" @click="removeCart(item)">
                             <i class="fa-duotone fa-trash-can" />
                         </a>
-                    </div>
-                    <!-- Product Remove End -->
-
+                    </div> -->
                 </div>
             </li>
-            <!-- Cart Procut Wrapper -->
 
-            <!-- Cart Product Total Start -->
-            <div class="cart-product-total p-b-20 m-b-20 border-bottom">
+            <!--! Cart Product Total Start -->
+            <!-- <div class="cart-product-total p-b-20 m-b-20 border-bottom">
                 <span class="value">Tổng tiền</span>
                 <span class="value">
                     <strong>{{ totalMoney }}</strong>
                 </span>
-            </div>
-            <!-- Cart Product Total End -->
+            </div> -->
 
-            <!-- Cart Product Button Start -->
-            <div class="cart-product-btn m-t-20">
-                <NuxtLink to="" class="btn btn-outline-light btn-hover-primary w-100">Giỏ Hàng</NuxtLink>
+            <!--! Cart Product Button Start -->
+            <!-- <div class="cart-product-btn m-t-20">
+                <NuxtLink to="/" class="btn btn-outline-light btn-hover-primary w-100">Giỏ Hàng</NuxtLink>
                 <NuxtLink to="/checkout" class="btn btn-outline-light btn-hover-primary w-100 m-t-20">Thanh Toán</NuxtLink>
-            </div>
+            </div> -->
             <!-- Cart Product Button End -->
         </ul>
         <!-- Header Cart Content End -->

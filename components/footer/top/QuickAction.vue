@@ -6,7 +6,7 @@
                 <li><NuxtLink to="/login">Đăng nhập</NuxtLink></li>
                 <li><NuxtLink to="/register">Đăng ký</NuxtLink></li>
                 <li><NuxtLink to="/cart">Xem Giỏ Hàng</NuxtLink></li>
-                <li><NuxtLink to="">Thanh Toán</NuxtLink></li> 
+                <li><NuxtLink to="/checkout">Thanh Toán</NuxtLink></li> 
             </ul>
         </div>
     </div>

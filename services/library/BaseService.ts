@@ -2,7 +2,7 @@ class BaseService {
     constructor(protected baseUrl: string) {}
 
     private getHeaders() {
-        const user = window.localStorage.getItem('user')
+        const user = window.localStorage.getItem('user') ?? null
         const token = user ? JSON.parse(user)?.value?.token : null
         return {
             'Content-Type': 'application/json',
@@ -12,7 +12,12 @@ class BaseService {
     }
 
     private getBaseUrl() {
-        return 'http://localhost:3000'
+        const config = useRuntimeConfig()
+        if(process.env.NODE_ENV === 'production') {
+            return config.apiURL
+        } else {
+            return 'http://localhost:3000'
+        }
     }
 
 

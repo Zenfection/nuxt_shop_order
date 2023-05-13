@@ -3,7 +3,12 @@
 </script>
 
 <template>
-  <NuxtLayout />
+  <!-- <NuxtLayout /> -->
+  <Header />
+
+  <NuxtPage />
+
+  <Footer />
 </template>
 
 

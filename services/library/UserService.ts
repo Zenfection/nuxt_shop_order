@@ -1,12 +1,17 @@
 import { User, CartItem } from "~/utils/types"
 import BaseService from "./BaseService"
 
+interface LoginData {
+    username: string
+    password: string
+}
+
 export default class UserService extends BaseService {
     constructor() {
         super('users')
     }
 
-    public async login(data: any): Promise<any> {
+    public async login(data: LoginData): Promise<any> {
         return await this.post(`/login`, data)
     }
 

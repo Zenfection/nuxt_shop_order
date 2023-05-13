@@ -3,9 +3,9 @@
         <div class="single-footer-widget">
             <h2 class="widget-title">Hỗ Trợ</h2>
             <ul class="widget-list">
-                <li><NuxtLink to="">Phí Giao hàng</NuxtLink></li>
-                <li><NuxtLink to="">Tra cứu đơn hàng</NuxtLink></li>
-                <li><NuxtLink to="">Hoàn trả hàng</NuxtLink></li>
+                <li><NuxtLink to="/">Phí Giao hàng</NuxtLink></li>
+                <li><NuxtLink to="/">Tra cứu đơn hàng</NuxtLink></li>
+                <li><NuxtLink to="/">Hoàn trả hàng</NuxtLink></li>
             </ul>
         </div>
     </div>

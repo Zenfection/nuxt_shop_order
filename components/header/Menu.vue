@@ -1,14 +1,8 @@
 <script setup lang="ts">
 
-const useStore = useUserStore()
+const userStore = useUserStore()
 
-onMounted(() => {
-    if (!useStore.user) {
-        useStore.restoreState()
-    }
-})
-
-const isLogged = computed(() => useStore.isAuthenticated ?? false)
+const isLogged = computed(() => userStore.isAuthenticated)
 </script>
 
 <template>

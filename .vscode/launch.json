@@ -5,10 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Launch Brave",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "type": "chrome",
+            "runtimeExecutable": "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
             "url": "http://localhost:8080",
+            "userDataDir": true,
             "webRoot": "${workspaceFolder}"
         }
     ]

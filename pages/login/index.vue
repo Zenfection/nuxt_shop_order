@@ -26,7 +26,7 @@ useHead({
                         <FormsLogin />
 
                         <div class="register">
-                            <NuxtLink to="register">Tạo tài khoản</NuxtLink>
+                            <NuxtLink to="/register">Tạo tài khoản</NuxtLink>
                         </div>
                     </div>
                 </div>

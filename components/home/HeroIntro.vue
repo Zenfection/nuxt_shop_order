@@ -9,21 +9,16 @@ let shapes = images.shape
 const { src, alt, width } = images.homeBackground ?? {}
 let homeBackground = { src, alt, width }
 
-const isLogged = computed(() => useStore.isAuthenticated ?? false)
+const isLogged = computed(() => useStore.isAuthenticated)
 const lettersEl = ref<HTMLElement | any>(null)
 
 onMounted(() => {
-    if (!useStore.user) {
-        useStore.restoreState()
-    }
-
     if (lettersEl.value) {
         lettersEl.value.innerHTML = lettersEl.value.textContent.replace(
             /([^\x00-\x80]|\w)/g,
             "<span class='letter'>$&</span>"
         )
         const widthLetter = lettersEl.value.getBoundingClientRect().width
-        console.log(widthLetter)
         $anime.timeline({
             loop: true
         })
@@ -91,10 +86,10 @@ onMounted(() => {
                         Sản phẩm được phát triển cả nhân nên có rất nhiều lỗi <br />
                         nếu bạn phát hiện hãy liên hệ với tôi bên trên.
                     </p>
-                    <NuxtLink v-if="isLogged" to="shop" class="btn btn-primary mt-4">Mua Hàng
+                    <NuxtLink v-if="isLogged" to="/shop" class="btn btn-primary mt-4">Mua Hàng
                         <i class="fa-duotone fa-cart-shopping-fast fa-xl"></i>
                     </NuxtLink>
-                    <NuxtLink v-if="!isLogged" to="login" class="btn btn-primary mt-4">Đăng Nhập
+                    <NuxtLink v-if="!isLogged" to="/login" class="btn btn-primary mt-4">Đăng Nhập
                         <i class="fa-duotone fa-arrow-right-to-bracket fa-xl"></i>
                     </NuxtLink>
                 </div>

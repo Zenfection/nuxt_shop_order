@@ -34,5 +34,4 @@ class PCVNService {
     }
 }
 
-const PCVNServiceInstance = new PCVNService('https://provinces.open-api.vn/api/')
-export default PCVNServiceInstance as PCVNService
+export default PCVNService

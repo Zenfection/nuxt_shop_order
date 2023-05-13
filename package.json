@@ -1,5 +1,8 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-shop-order",
+  "version": "1.0.0",
+  "description": "My nuxt.js project",
+  "author": "Zenfection",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -12,10 +15,15 @@
     "@nuxt/devtools": "^0.4.6",
     "@nuxtjs/device": "^3.1.0",
     "@nuxtjs/google-fonts": "^3.0.0",
+    "@nuxtjs/html-validator": "^1.2.5",
+    "@nuxtjs/supabase": "^0.3.5",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@types/bootstrap": "^5.2.6",
-    "@types/node": "^18",
+    "@types/node": "^18.16.8",
     "nuxt": "^3.4.3",
     "nuxt-icon": "^0.4.0",
+    "nuxt-typed-router": "^3.2.2",
+    "prisma": "^4.14.0",
     "sass": "^1.62.1",
     "typescript": "^5.0.4"
   },
@@ -31,7 +39,8 @@
     "@productdevbook/chatwoot": "^1.1.0",
     "bootstrap": "^5.2.3",
     "nuxt-cloudflare-analytics": "^1.0.8",
-    "nuxt-use-motion": "2.0.0-beta.11",
-    "vue-skeletor": "^1.0.6"
-  }
+    "nuxt-swiper": "^1.1.0",
+    "nuxt-use-motion": "2.0.0-beta.11"
+  },
+  "packageManager": "yarn@1.22.19"
 }
