@@ -20,8 +20,9 @@
                     <span><Icon name="logos:javascript" size="24px"/></span> JS Library
                 </li>
             </ul>
-            <NuxtLink to="contact" class="btn btn-primary btn-hover-dark">Liên
-                Hệ</NuxtLink>
+            <NuxtLink to="/contact" class="btn btn-primary btn-hover-dark">
+                Liên Hệ
+            </NuxtLink>
         </div>
         <!-- About Content End -->
     </div>

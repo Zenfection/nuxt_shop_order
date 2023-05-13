@@ -1,33 +1,45 @@
-import { fileURLToPath } from "url";
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   runtimeConfig: {
-    imagekit: {
-      urlEndpoint: process.env.NUXT_IMAGEKIT_URL_ENDPOINT,
-      publicKey: process.env.NUXT_IMAGEKIT_PUBLIC_KEY,
-      privateKey: process.env.NUXT_IMAGEKIT_PRIVATE_KEY,
-    }
+    provinceVN: process.env.NUXT_API_PROVINCE_VN,
+    backend: process.env.MODE === 'development'
+        ? 'http://localhost:3000'
+        : process.env.NUXT_BACKEND_API
   },
   app: {
+    head: {
+      "script": [
+        {
+          "src": "assets/icon/icon-zen.min.js",
+        },
+      ],
+    },
     layoutTransition: true,
     pageTransition: true,
   },
   modules: [
     '@formkit/nuxt',
-    '@nuxt/image-edge',
+    ['@nuxt/image-edge', {
+      imagekit: {
+        baseURL: process.env.NUXT_IMAGEKIT_URL_ENDPOINT,
+      }
+    }],
     '@nuxtjs/robots',
     '@nuxt/devtools',
     'nuxt-use-motion',
+    '@nuxtjs/device',
+    '@hypernym/nuxt-anime',
     'nuxt-icon',
-    '@pinia/nuxt',
-    '@nuxtjs/google-fonts',
+    ['@pinia/nuxt', {
+      autoImports: [
+        'defineStore',
+      ],
+    }],
     '@nuxtjs/fontaine',
-    [
-      'nuxt-cloudflare-analytics',
-      {
-        token: process.env.NUXT_CLOUDFLARE_ANALYTICS,
-      },
+    '@formkit/auto-animate',
+    ['nuxt-cloudflare-analytics', {
+      token: process.env.NUXT_CLOUDFLARE_ANALYTICS,
+    },
     ],
   ],
   css: [
@@ -36,20 +48,17 @@ export default defineNuxtConfig({
     '~/assets/style/custom.css'
   ],
   plugins: [
-    {
-      src: 'bootstrap/dist/js/bootstrap.min.js',
-      mode: 'client'
-    }
+    '~/plugins/bootstrap.client.ts',
+    
   ],
-  // devtools: {
-  //   enabled: true,
-  // },
   devServer: {
     port: 8080,
   },
-  image: {
-    imagekit: {
-      baseURL: process.env.NUXT_IMAGEKIT_URL_ENDPOINT,
-    }
+  imports: {
+    dirs: [
+      'stores',
+      'services',
+      'utils',
+    ]
   },
 })

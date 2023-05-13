@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { images } from '~/global/image';
+import { images } from '~/utils/image';
 
 const { src, alt, height } = images.team1 ?? {}
 const team1 = { src, alt, height }
@@ -8,7 +8,7 @@ const team1 = { src, alt, height }
 <template>
     <div class="single-team-wrapper" v-motion-slide-visible-bottom>
         <div class="thumb"> 
-            <NuxtLink to="contact">
+            <NuxtLink to="/contact">
                 <NuxtImg provider="imagekit" class="fit-image" :src="team1.src" :alt="team1.alt" :height="team1.height" />
             </NuxtLink>
             <!-- Social Shear Start -->

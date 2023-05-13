@@ -9,5 +9,5 @@ useHead({
 <template>
     <AboutContent />
 
-    <LazyAboutTeam />
+    <AboutTeam />
 </template>

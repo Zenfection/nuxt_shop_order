@@ -1,9 +1,7 @@
 <script setup lang="ts">
-// definePage({
-//     meta: {
-//         title: "Liên Hệ",
-//     }
-// })
+useHead({
+    title: "Liên Hệ",
+})
 </script>
 
 <template>
