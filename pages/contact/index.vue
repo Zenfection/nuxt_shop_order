@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useHead({
+definePageMeta({
     title: "Liên Hệ",
 })
 </script>

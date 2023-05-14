@@ -3,12 +3,14 @@
 </script>
 
 <template>
-  <!-- <NuxtLayout /> -->
-  <Header />
+  <div>
+    <SeoKit />
+    <NuxtLayout>
 
-  <NuxtPage />
+      <NuxtPage />
 
-  <Footer />
+    </NuxtLayout>
+  </div>
 </template>
 
 

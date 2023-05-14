@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-useHead({
+definePageMeta({
     title: "Giới Thiệu",
 })
 
