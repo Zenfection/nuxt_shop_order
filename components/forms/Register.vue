@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import autoAnimate from '@formkit/auto-animate'
 
 const client = useSupabaseClient()
@@ -9,51 +8,81 @@ const register = ref()
 const email = ref<string>('')
 const password = ref<string>('')
 
-const signup = async() => {
-    await client.auth.signUp({
-        email: email.value,
-        password: password.value,
-    }).then(result => {
-        if (result.error) {
-            alert(result.error.message)
-        } else {
-            alert('Đăng ký thành công')
-        }
+const signup = async () => {
+  await client.auth
+    .signUp({
+      email: email.value,
+      password: password.value,
+    })
+    .then((result) => {
+      if (result.error) {
+        alert(result.error.message)
+      } else {
+        alert('Đăng ký thành công')
+      }
     })
 }
 
 onMounted(() => {
-    register.value.querySelectorAll(".formkit-outer").forEach(autoAnimate)
+  register.value.querySelectorAll('.formkit-outer').forEach(autoAnimate)
 })
 </script>
 
 <template>
-    <div class="register" ref="register">
-        <FormKit type="form" :submit-attrs="{
-            inputClass: 'button',
-        }" submit-label="Đăng Ký Tài Khoản" @submit="signup">
-            <FormKit type="text" label="Tài Khoản" placeholder="Nhập email." validation="required|length:5,30|email"
-                validation-visibility="dirty" v-model="email" :floating-label="false" :validation-messages="{
-                    email: 'Email không hợp lệ',
-                    required: 'Yêu cầu nhập tài khoản',
-                    length: 'Tài khoản phải có độ dài từ 5 đến 30 ký tự',
-                }" />
-            <FormKit type="password" label="Mật Khẩu" name="password" placeholder="Nhập mật khẩu."
-                validation="required|length:5,15" validation-visibility="dirty" v-model="password" :floating-label="false"
-                :validation-messages="{
-                    required: 'Yêu cầu nhập mật khẩu',
-                    length: 'Mật Khẩu phải có độ dài từ 5 đến 30 ký tự',
-                }" />
-            <FormKit type="password" name="password_confirm" label="Xác Nhận Mật Khẩu" placeholder="Nhập lại mật khẩu."
-                validation="required|confirm" validation-label="password confirmation" validation-visibility="dirty"
-                :validation-messages="{
-                    required: 'Yêu cầu nhập lại mật khẩu',
-                    confirm: 'Mật khẩu không khớp',
-                    matches: 'Must include at least one number',
-                }" />
-        </FormKit>
-    </div>
-    <!-- <form id="registerForm">
+  <div ref="register" class="register">
+    <FormKit
+      type="form"
+      :submit-attrs="{
+        inputClass: 'button',
+      }"
+      submit-label="Đăng Ký Tài Khoản"
+      @submit="signup"
+    >
+      <FormKit
+        v-model="email"
+        type="text"
+        label="Tài Khoản"
+        placeholder="Nhập email."
+        validation="required|length:5,30|email"
+        validation-visibility="dirty"
+        :floating-label="false"
+        :validation-messages="{
+          email: 'Email không hợp lệ',
+          required: 'Yêu cầu nhập tài khoản',
+          length: 'Tài khoản phải có độ dài từ 5 đến 30 ký tự',
+        }"
+      />
+      <FormKit
+        v-model="password"
+        type="password"
+        label="Mật Khẩu"
+        name="password"
+        placeholder="Nhập mật khẩu."
+        validation="required|length:5,15"
+        validation-visibility="dirty"
+        :floating-label="false"
+        :validation-messages="{
+          required: 'Yêu cầu nhập mật khẩu',
+          length: 'Mật Khẩu phải có độ dài từ 5 đến 30 ký tự',
+        }"
+      />
+      <FormKit
+        type="password"
+        name="password_confirm"
+        label="Xác Nhận Mật Khẩu"
+        placeholder="Nhập lại mật khẩu."
+        validation="required|confirm"
+        validation-label="password confirmation"
+        validation-visibility="dirty"
+        :validation-messages="{
+          required: 'Yêu cầu nhập lại mật khẩu',
+          confirm: 'Mật khẩu không khớp',
+          matches: 'Must include at least one number',
+        }"
+      />
+    </FormKit>
+  </div>
+  <!-- <form id="registerForm">
         <div class="single-input-item m-b-10">
             <input type="text" name="fullname" id="fullname" class="from-control" placeholder="Họ và Tên">
         </div>

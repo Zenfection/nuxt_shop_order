@@ -1,15 +1,15 @@
 <script setup lang="ts">
 definePageMeta({
-    title: "Trang Chủ",
-});
+  title: 'Trang Chủ',
+})
 </script>
 
 <template>
-    <HomeHeroIntro />
+  <HomeHeroIntro />
 
-    <HomeFeature />
+  <HomeFeature />
 
-    <!-- <Suspense>
+  <!-- <Suspense>
     <template #default>
       <Category />
     </template>

@@ -1,17 +1,9 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    <SeoKit />
-    <NuxtLayout>
+  <!-- <SeoKit /> -->
 
-      <NuxtPage />
-
-    </NuxtLayout>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
-
-
-

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-
 definePageMeta({
-    title: "Giới Thiệu",
+  title: 'Giới Thiệu',
 })
-
 </script>
 
 <template>
-    <AboutContent />
+  <AboutContent />
 
-    <AboutTeam />
+  <AboutTeam />
 </template>

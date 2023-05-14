@@ -1,13 +1,11 @@
 <template>
-    <div class="section section-margin">
-        <div class="container">
-            <div class="row m-b-n30">
-                
-                <AboutContentThumb />
+  <div class="section section-margin">
+    <div class="container">
+      <div class="row m-b-n30">
+        <AboutContentThumb />
 
-                <AboutContentDetail />
-
-            </div>
-        </div>
+        <AboutContentDetail />
+      </div>
     </div>
+  </div>
 </template>

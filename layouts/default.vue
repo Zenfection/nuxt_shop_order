@@ -1,7 +1,7 @@
 <template>
-    <Header />
+  <TheHeader />
 
-    <slot />
+  <slot />
 
-    <LazyFooter />
+  <TheFooter />
 </template>
